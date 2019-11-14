@@ -8,6 +8,7 @@ class ArrayPolygon
     private:
         Polygon *arr;
         int sizes;
+        void redimensionar();
     public:
         ArrayPolygon();
         ArrayPolygon(Polygon a[], int s);
@@ -16,6 +17,7 @@ class ArrayPolygon
         void insertarFinal(Polygon a);
         void insertar (Polygon a, int pas);
         void eliminar();
+        void printA();
 
     protected:
 

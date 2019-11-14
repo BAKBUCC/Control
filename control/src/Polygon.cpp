@@ -12,11 +12,6 @@ Polygon::Polygon()
 Polygon::Polygon(int a, int b)
 :w(a), h(b){}
 
-Polygon::~Polygon()
-{
-    //dtor
-}
-
 int Polygon::area()
 {
     return w*h;
@@ -24,5 +19,5 @@ int Polygon::area()
 
 void Polygon::printArea()
 {
-    cout<<this->area()<<'\n';
+    cout<<this->area()<<'\t';
 }

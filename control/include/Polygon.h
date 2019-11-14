@@ -9,8 +9,7 @@ private:
     public:
         Polygon();
         Polygon(int, int);
-        virtual ~Polygon();
-        int area();
+        int area( void);
         void printArea();
 };
 

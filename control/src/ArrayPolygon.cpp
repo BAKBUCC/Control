@@ -2,6 +2,32 @@
 #include <iostream>
 
 using namespace std;
+void ArrayPolygon::redimensionar()
+{
+    cout<<"nuevo tamanio: ";
+    int guardar_size=sizes;
+    cin>>sizes;
+    if(sizes>guardar_size)
+    {
+        sizes-=guardar_size;
+        while (sizes--)
+        {
+            cout<<"ingresar altura y anchura respectivamente: ";
+            int h, w;
+            cin>>h>>w;
+            Polygon a(h,w);
+            ArrayPolygon::insertarFinal(a);
+        }
+    }
+    else
+    {
+        guardar_size-=sizes;
+        while(guardar_size--)
+        {
+            eliminar();
+        }
+    }
+}
 
 ArrayPolygon::ArrayPolygon()
 {
@@ -47,13 +73,12 @@ void ArrayPolygon::insertar(Polygon a, int pos)
 {
     sizes++;
     Polygon *tmp = new Polygon[sizes];
-    int i;
-    for (i=0; i<pos; i++)
+    for (int i=0; i<pos-1; i++)
     {
         tmp[i]=arr[i];
     }
-    tmp[pos]=a;
-    for (int j=pos+1; j<sizes-1; j++)
+    tmp[pos-1]=a;
+    for (int j=pos; j<sizes-1; j++)
     {
         tmp[j]=arr[j-1];
     }
@@ -72,7 +97,23 @@ void ArrayPolygon::eliminar()
     delete [] arr;
     arr=tmp;
 }
-
+void ArrayPolygon::printA()
+{
+    cout<<"areas: ";
+    cout<<"{ ";
+    int i;
+    for (i=0; i<sizes; i++)
+    {
+        arr->printArea();
+        if (i<sizes-1)
+        {
+            cout<<", ";
+        }
+        arr++;
+    }
+    cout<<"}"<<endl;
+    arr-=i;
+}
 
 
 
